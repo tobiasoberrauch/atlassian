@@ -1,6 +1,26 @@
 # Jira Docker image
 
-This folder contains the Dockerfile and associated files for the ```durdn/jira``` docker image which aims to make it a breeze getting an Atlassian Jira instance up and running.
+This folder contains the Dockerfile and associated files for the ```durdn/atlassian-jira``` docker image which aims to make it a breeze getting an Atlassian Jira instance up and running.
+
+## Using Docker Compose to run the published image (Recommended)
+This will provision a local PostgreSQL DB container, download the `atlassian-jira`
+image from the public Docker Hub, and start a locally running instance of JIRA.
+
+1. Install Docker (http://docs.docker.com/installation/)
+2. Install Docker Compose (http://docs.docker.com/compose/)
+3. From this directory, run `docker-compose up`
+4. After a few moments, JIRA should now be running locally on http://localhost:8080
+
+## Using Docker Compose to build and run the Dockerfile (for developing the image)
+This will provision a local PostgreSQL DB container, build the `atlassian-jira`
+image from the Dockerfile, and start a locally running instance of JIRA. It's
+meant to be used when you are contributing to the Dockerfile or don't have
+access to the public Docker Hub.
+
+1. Install Docker (http://docs.docker.com/installation/)
+2. Install Docker Compose (http://docs.docker.com/compose/)
+3. From this directory, run `docker-compose -f docker-compose-dev.yml up`
+4. After a few minutes, JIRA should now be running locally on http://localhost:8080
 
 ## Database connection
 

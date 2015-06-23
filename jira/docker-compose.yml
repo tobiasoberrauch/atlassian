@@ -1,0 +1,10 @@
+web:
+  image: durdn/atlassian-jira
+  environment:
+    - 'DATABASE_URL=postgresql://postgres@db/postgres'
+  ports:
+    - '8080:8080'
+  links:
+    - 'db'
+db:
+  image: postgres:9.4
