@@ -1,0 +1,99 @@
+{
+  "key": "jira",
+  "name": "ui-driven",
+  "description": "Grow and flow with ui driven development",
+  "vendor": {
+    "name": "UI Driven",
+    "url": "https://www.uidriven.com"
+  },
+  "baseUrl": "{{localBaseUrl}}",
+  "links": {
+    "self": "{{localBaseUrl}}/atlassian-connect.json",
+    "homepage": "{{localBaseUrl}}/atlassian-connect.json"
+  },
+  "authentication": {
+    "type": "jwt"
+  },
+  "enableLicensing": false,
+  "lifecycle": {
+    "installed": "/installed",
+    "uninstalled": "/uninstalled",
+    "enabled": "/enabled",
+    "disabled": "/disabled"
+  },
+  "scopes": [
+    "READ",
+    "WRITE"
+  ],
+  "modules": {
+    "jiraDashboardItems": [
+      {
+        "name": {
+          "value": "Issues in project",
+          "i18n": "issues.in.project.i18n"
+        },
+        "url": "/issues-in-project?dashboard={dashboard.id}&dashboardItem={dashboardItem.id}",
+        "key": "iframe-requests",
+        "description": {
+          "value": "Issues in project dashboard item",
+          "i18n": "issues.in.project.description.i18n"
+        },
+        "thumbnailUrl": "/thumbnail",
+        "configurable": true,
+        "conditions": [
+          {
+            "condition": "/condition?view={dashboardItem.viewType}&dashboard={dashboard.id}&dashboardItem={dashboardItem.id}"
+          }
+        ]
+      }
+    ],
+    "generalPages": [
+      {
+        "key": "grow",
+        "location": "system.top.navigation.bar",
+        "name": {
+          "value": "Grow"
+        },
+        "url": "/grow",
+        "conditions": [
+          {
+            "condition": "user_is_logged_in"
+          }
+        ]
+      }
+    ],
+    "webPanels": [
+      {
+        "key": "my-configuration-page",
+        "url": "configuration?id={board.id}&type={board.type}",
+        "name": {
+          "value": "My Configuration Page"
+        },
+        "location": "jira.agile.board.configuration",
+        "weight": 1
+      },
+      {
+        "key": "my-web-panel",
+        "url": "web-panel?id={board.id}&mode={board.screen}",
+        "name": {
+          "value": "My Web Panel"
+        },
+        "location": "board-links",
+        "layout": {
+          "width": "100px",
+          "height": "100px"
+        }
+      }
+    ],
+    "webSections": [
+      {
+        "key": "board-links",
+        "location": "jira.agile.board.tools",
+        "weight": 10,
+        "name": {
+          "value": "My Extension"
+        }
+      }
+    ]
+  }
+}

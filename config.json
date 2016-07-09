@@ -1,0 +1,26 @@
+{
+  "development": {
+    "port": 3000,
+    "errorTemplate": true,
+    "store": {
+      "adapter": "jugglingdb",
+      "type": "sqlite3",
+      "database": "store.db"
+    }
+  },
+  "production": {
+    "port": "$PORT",
+    "errorTemplate": true,
+    "localBaseUrl": "https://your-subdomain.herokuapp.com",
+    "store": {
+      "type": "postgres",
+      "url": "$DATABASE_URL"
+    },
+    "whitelist": [
+      "*.jira-dev.com",
+      "*.atlassian.net",
+      "*.atlassian.com",
+      "*.jira.com"
+    ]
+  }
+}

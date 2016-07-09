@@ -1,0 +1,34 @@
+{% extends "layout.twig" %}
+
+{% block body %}
+    <div class="aui-page-panel ac-content">
+        <div class="aui-page-panel-inner">
+            <section class="aui-page-panel-content">
+                <div id="issues-in-project" class="aui-item">
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/js/IssueTableView.js"></script>
+    <script type="text/javascript" src="/js/IssueSearchService.js"></script>
+    <script type="text/javascript" src="/js/DashboardItemConfigurationView.js"></script>
+    <script type="text/javascript" src="/js/DashboardItemConfigurationService.js"></script>
+    <script type="text/javascript" src="/js/DashboardItemView.js"></script>
+    <script type="text/javascript">
+        AP.require(['jira'], function (jira) {
+            jira.DashboardItem.onDashboardItemEdit(function() {
+                var configurationService = new window.DashboardItemConfigurationService();
+
+                configurationService.getConfiguration(function(config) {
+                    var configurationView = new window.DashboardItemConfigurationView();
+
+                    configurationView.render(config);
+                });
+            });
+        });
+
+        var dashboardItemView = new window.DashboardItemView();
+        dashboardItemView.render();
+    </script>
+{% endblock %}
