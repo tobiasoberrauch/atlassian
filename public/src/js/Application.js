@@ -1,5 +1,9 @@
-export default class Application {
+class Application {
     constructor() {
 
+    }
+
+    run() {
+        console.log('run');
     }
 }
