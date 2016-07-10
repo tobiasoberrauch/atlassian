@@ -1,0 +1,11 @@
+# Names
+- You want it? You get it?
+- Easy it
+- Simply it
+- Simplify it
+- IT Manager
+- IT Nerd
+- IT Dirigent
+- IT Konfigurator
+- IT Designer
+- IT Builder
