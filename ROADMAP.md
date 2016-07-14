@@ -1,11 +1,13 @@
-ATLASSIAN ROADMAP
+# ATLASSIAN ROADMAP
 
-1. JIRA with Docker
-2. Install process
-3. Customize Issue view and modify within Docker
-4. White label JIRA
-5. Be independent from Atlasssian
-6. Run JIRA in Electron UI
-7. Issue type software
-8. Issue type service
-9. Share  workflow with others and get money
+## JIRA with Docker
+## Install process
+## Customize Issue view and modify within Docker
+## White label JIRA
+- [Look and feel](https://confluence.atlassian.com/jira064/customizing-the-look-and-feel-720412271.html)
+
+## Be independent from Atlasssian
+## Run JIRA in Electron UI
+## Issue type software
+## Issue type service
+## Share  workflow with others and get money

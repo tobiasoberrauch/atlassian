@@ -1,39 +1,36 @@
 process.env.PWD = process.env.PWD || process.cwd();
 
-var http = require('http');
-var path = require('path');
-var os = require('os');
+const http = require('http');
+const os = require('os');
+const path = require('path');
 
-var express = require('express');
-var bodyParser = require('body-parser');
-var compression = require('compression');
-var cookieParser = require('cookie-parser');
-var errorHandler = require('errorhandler');
-var morgan = require('morgan');
+const atlassian = require('atlassian-connect-express');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const compression = require('compression');
+const errorHandler = require('errorhandler');
+const expiry = require('static-expiry');
+const express = require('express');
+const morgan = require('morgan');
+const twig = require('twig');
 
-var atlassian = require('atlassian-connect-express');
-var expiry = require('static-expiry');
+const staticDir = path.join(__dirname, 'public');
+const viewsDir = path.join(__dirname, 'views');
+const routes = require('./routes');
 
-var staticDir = path.join(__dirname, 'public');
-var viewsDir = __dirname + '/views';
-var routes = require('./routes');
+const app = express();
+const addon = atlassian(app);
+const port = addon.config.port();
+const devEnv = app.get('env') == 'development';
 
-var app = express();
-var addon = atlassian(app);
-var port = addon.config.port();
-var devEnv = app.get('env') == 'development';
 
-// The following settings applies to all environments
 app.set('port', port);
 app.set('views', viewsDir);
 
-// twig
-var twig = require('twig');
 app.set('view engine', 'twig');
 app.set('twig options', {
     strict_variables: false
 });
-
 
 app.use(morgan(devEnv ? 'dev' : 'combined'));
 app.use(bodyParser.json());
@@ -48,8 +45,6 @@ app.use(expiry(app, {
     dir: staticDir,
     debug: devEnv
 }));
-
-// Mount the static resource dir
 app.use(express.static(staticDir));
 
 // Show nicer errors when in dev mode
