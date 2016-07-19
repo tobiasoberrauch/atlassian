@@ -1,7 +1,1 @@
 .idea
-node_modules
-*.iml
-.DS_Store
-*.pem
-credentials.json
-public/dist

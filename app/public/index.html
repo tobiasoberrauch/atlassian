@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- endinject -->
+    <!-- inject:css -->
+    <!-- endinject -->
+</head>
+<body>
+
+<div class="pos-f-t">
+    <div class="collapse" id="navbar-header">
+        <div class="container bg-inverse p-a-1">
+            <h3>Collapsed content</h3>
+            <p>Toggleable via the navbar brand.</p>
+        </div>
+    </div>
+    <nav class="navbar navbar-light navbar-static-top bg-faded">
+        <div class="container">
+            <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+                &#9776;
+            </button>
+            <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+                <a class="navbar-brand" href="/">Flow</a>
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                        <a href="/confluence" class="nav-link">Confluence</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/xing" class="nav-link">Xing</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div id="content" class="container"></div>
+
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted"><a href="/auth/xing">Login with Xing</a></span>
+    </div>
+</footer>
+
+<!-- bower:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/jquery/jquery.js"></script>
+<script src="bower_components/tether/dist/js/tether.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<!-- endinject -->
+<!-- inject:js -->
+<!-- endinject -->
+<script>
+    jQuery.get('http://localhost:3010', function () {
+       console.log(arguments);
+    });
+</script>
+
+</body>
+</html>
+
