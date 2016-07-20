@@ -15,7 +15,8 @@ let mainWindow = null;
 function startServer(module, next) {
     module.child = new (monitor.Monitor)(module.script, module);
 
-    module.child.on('start', function () {
+    module.child.on('start', function (process, data) {
+        console.log(process, data);
         next(null, module);
     });
     module.child.start();
