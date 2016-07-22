@@ -2,3 +2,4 @@
 amps-*
 .vagrant
 sdk/data/*
+data/backup/*

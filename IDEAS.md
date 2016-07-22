@@ -1,0 +1,2 @@
+# Ideas
+- Cleanup Confluence Plugin
