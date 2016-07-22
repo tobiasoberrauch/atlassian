@@ -6,7 +6,11 @@
       "adapter": "jugglingdb",
       "type": "sqlite3",
       "database": "store.db"
-    }
+    },
+    "hosts": [
+      "http://admin:admin@localhost:1990",
+      "http://admin:admin@localhost:2990"
+    ]
   },
   "production": {
     "port": "$PORT",
